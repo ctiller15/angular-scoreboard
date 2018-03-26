@@ -10,7 +10,18 @@
     <h1>My Score Board</h1>
 
     <section ng-class="'quarter-tracker'">
-      <h2>Quarter: {{currGame.quarter}}</h2>
+      <h2 ng-class="'quarter-announcement'">Current Quarter: {{currGame.quarter}}</h2>
+
+      <section ng-class="'quarters'" ng-repeat="quarter in currGame.prevQuarters">
+        <hr>
+        <h2>Quarter {{$index + 1}} scores</h2>
+        <section ng-repeat="team in quarter">
+
+          <h3>{{team.name}}</h3>
+          <h4>score: {{team.score}}</h4>
+        </section>
+      </section>
+
 
       <form>
         <button type="text" ng-click="currGame.updateQuarter()">next quarter</button>
