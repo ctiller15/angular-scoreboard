@@ -4,10 +4,26 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Angular Scoreboard</title>
-    <link rel="stylesheet" href="/screen.css">
+    <link rel="stylesheet" href="./screen.css">
   </head>
-  <body>
-    <h1>Hello, World!</h1>
-    <script src="/main.js" charset="utf-8"></script>
+  <body ng-app="mainGame" ng-controller="playerController">
+    <h1>My Score Board</h1>
+
+    <section ng-class="team-boards" ng-repeat="x in players">
+      <h2>{{x.name}}</h2>
+      <h3>{{x.score}}</h3>
+      <form ng-class="team-name">
+        <input type="text" ng-model="x.name">
+        <button>Update name</button>
+      </form>
+
+      <form ng-class="'score-section'">
+        <button ng-click="x.updateScore(1)">Score + 1</button>
+        <button ng-click="x.updateScore(-1)">Score - 1</button>
+      </form>
+    </section>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="./main.js" charset="utf-8"></script>
   </body>
 </html>
