@@ -12,6 +12,7 @@ angular
         this.updateScore = (val) => {
           this.score += val;
         }
+        this.updatedName = "";
         this.updateName = (name) => {
           this.name = name;
         }
@@ -27,6 +28,6 @@ angular
       $scope.createTeam(`team ${i + 1}`);
     }
 
-    console.log($scope.players);
+    // console.log($scope.players);
   });
 

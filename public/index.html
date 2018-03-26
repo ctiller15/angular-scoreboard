@@ -13,8 +13,8 @@
       <h2>{{x.name}}</h2>
       <h3>{{x.score}}</h3>
       <form ng-class="team-name">
-        <input type="text" ng-model="x.name">
-        <button>Update name</button>
+        <input type="text" ng-model="x.updatedName">
+        <button ng-click="x.updateName(x.updatedName)">Update name</button>
       </form>
 
       <form ng-class="'score-section'">
