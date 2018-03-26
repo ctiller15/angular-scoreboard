@@ -9,7 +9,13 @@
   <body ng-app="mainGame" ng-controller="playerController">
     <h1>My Score Board</h1>
 
-    <section ng-class="'quarter-tracker'"></section>
+    <section ng-class="'quarter-tracker'">
+      <h2>Quarter: {{currGame.quarter}}</h2>
+
+      <form>
+        <button type="text" ng-click="currGame.updateQuarter()">next quarter</button>
+      </form>
+    </section>
 
     <section ng-class="'team-boards'" ng-repeat="x in currGame.teams">
       <h2>{{x.name}}</h2>
