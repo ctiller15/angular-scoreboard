@@ -2,8 +2,24 @@ angular
   .module("mainGame", [])
   .controller("playerController", ($scope) => {
     $scope.players = [];
-    $scope.teams = 2;
-    $scope.score = 10;
+
+    class Game {
+      constructor(teamCount) {
+        this.teams = [];
+        this.quarter = 1;
+        this.updateQuarter = () => {
+          this.quarter += 1;
+        }
+        this.createTeam = (teamName) => {
+          let team = new Team(teamName);
+          this.teams.push(team);
+        }
+
+        for(let i = 0; i < teamCount; i++) {
+          this.createTeam(`team ${i + 1}`);        
+        }
+      }
+    }
 
     class Team {
       constructor(name) {
@@ -28,6 +44,7 @@ angular
       $scope.createTeam(`team ${i + 1}`);
     }
 
-    // console.log($scope.players);
+    $scope.currGame = new Game(2);
+    console.log($scope.currGame);
   });
 

@@ -9,7 +9,9 @@
   <body ng-app="mainGame" ng-controller="playerController">
     <h1>My Score Board</h1>
 
-    <section ng-class="team-boards" ng-repeat="x in players">
+    <section ng-class="'quarter-tracker'"></section>
+
+    <section ng-class="'team-boards'" ng-repeat="x in currGame.teams">
       <h2>{{x.name}}</h2>
       <h3>{{x.score}}</h3>
       <form ng-class="team-name">
